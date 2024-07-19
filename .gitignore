@@ -1,5 +1,11 @@
-# Byte-compiled / optimized / DLL files
 .DS_Store
+rtmdet_mmdetection_to_coreml/*.pth
+rtmdet_mmdetection_to_coreml/third_party/
+rtmdet_mmdetection_to_coreml/work_dir/
+.*
+old/
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
