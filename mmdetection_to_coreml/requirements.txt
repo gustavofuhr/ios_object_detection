@@ -1,8 +1,0 @@
-numpy==1.26.4
-PyYAML==6.0.1
-openmim==0.3.9
-torch==2.0.0
-wheel==0.43.0
-coremltools==6.3
-ipyplot
-scikit-learn==1.1.2
