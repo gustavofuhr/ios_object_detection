@@ -6,3 +6,4 @@ wheel==0.43.0
 coremltools==6.3
 ipyplot
 scikit-learn==1.1.2
+opencv-python

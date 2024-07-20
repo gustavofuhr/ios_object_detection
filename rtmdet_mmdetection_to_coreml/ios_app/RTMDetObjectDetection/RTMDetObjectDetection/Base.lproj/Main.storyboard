@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RTMDetObjectDetection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECs-92-vJI" userLabel="CameraView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-t6-weB" userLabel="BBoxView" customClass="BoundingBoxView" customModule="RTMDetObjectDetection" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="46.666666666666686" width="393" height="759"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZTD-t6-weB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3vi-BU-iSp"/>
+                            <constraint firstItem="ZTD-t6-weB" firstAttribute="centerX" secondItem="ECs-92-vJI" secondAttribute="centerX" id="4Hd-mK-y4F"/>
+                            <constraint firstItem="ECs-92-vJI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JnU-SR-BNo"/>
+                            <constraint firstItem="ZTD-t6-weB" firstAttribute="height" secondItem="ECs-92-vJI" secondAttribute="height" id="OGF-GT-shA"/>
+                            <constraint firstItem="ECs-92-vJI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RTh-GC-Ype"/>
+                            <constraint firstItem="ZTD-t6-weB" firstAttribute="width" secondItem="ECs-92-vJI" secondAttribute="width" id="Z9k-dB-neJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ECs-92-vJI" secondAttribute="bottom" id="cHT-kd-sbA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECs-92-vJI" secondAttribute="trailing" id="vZT-6z-oyi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bbView" destination="ZTD-t6-weB" id="7ry-vT-VJe"/>
+                        <outlet property="cameraView" destination="ECs-92-vJI" id="MD1-Ne-XfX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.824427480916029" y="-28.169014084507044"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
