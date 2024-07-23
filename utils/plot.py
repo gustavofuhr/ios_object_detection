@@ -19,6 +19,16 @@ def draw_text(img, text,
     return text_size
 
 def plot_detections(im, detections, detector_size = None):
+    """
+    Plot detections on image
+
+    Args:
+        im: image as numpy array
+        detections: list of dictionaries with keys "label", "box", "score",
+                    where label is a string, box is a list of 4 integers (tl,br), and score is a float.
+        detector_size: tuple with size of resized image used for detection. 
+                        If provided, boxes will be scaled accordingly.
+    """
     # im = cv2.imread(image_path)
     im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
 

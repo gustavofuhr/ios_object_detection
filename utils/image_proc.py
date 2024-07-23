@@ -18,7 +18,7 @@ def resize_keep_ratio(image,
 
     Returns:
         np.array, resized image
-        offset (y or x) if letter_box is True
+        offset_xy if letter_box is True, tuple with the offset in x and y
     """
     h, w = image.shape[:2]
     ratio = min(new_shape[0] / h, new_shape[1] / w)
@@ -32,7 +32,7 @@ def resize_keep_ratio(image,
             # import pdb; pdb.set_trace()
             top, bottom, left, right = pad_h//2, pad_h//2, pad_w//2, pad_w//2
             padded = cv2.copyMakeBorder(resized, top, bottom, left, right, cv2.BORDER_CONSTANT, value=padding_color)
-            offset = max(pad_h, pad_w)//2
+            offset = (0, pad_h//2) if pad_h > pad_w else (pad_w//2, 0)
             return padded, offset
         
         # no letterbox

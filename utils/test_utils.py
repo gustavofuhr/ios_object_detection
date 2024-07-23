@@ -3,7 +3,7 @@ import unittest
 import cv2
 import numpy as np
 
-from . import *
+from image_proc import resize_keep_ratio
 
 class TestUtils(unittest.TestCase):
     
@@ -19,11 +19,12 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(im_rp.shape, (800, 800, 3))
         self.assertTrue(np.all(im_rp[:,w_expected:,:] == 114))
 
-        im_rlb, offset_x = resize_keep_ratio(im, (800, 800), padding = True, letter_box=True)
+        im_rlb, offset_xy = resize_keep_ratio(im, (800, 800), padding = True, letter_box=True)
         self.assertEqual(im_rp.shape, (800, 800, 3))
-        self.assertEqual(offset_x, (800-w_expected)//2)
-        self.assertTrue(np.all(im_rlb[:,:offset_x,:] == 114))
-        self.assertTrue(np.all(im_rlb[:,-offset_x,:] == 114))
+        self.assertEqual(offset_xy[0], (800-w_expected)//2)
+        self.assertEqual(offset_xy[1], 0)
+        self.assertTrue(np.all(im_rlb[:,:offset_xy[0],:] == 114))
+        self.assertTrue(np.all(im_rlb[:,-offset_xy[0],:] == 114))
         
         # width > height
         im = cv2.imread("../sample_images/demo.jpg")
@@ -36,11 +37,12 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(im_rp.shape, (800, 800, 3))
         self.assertTrue(np.all(im_rp[h_expected:,:,:] == 114))
 
-        im_rlb, offset_y = resize_keep_ratio(im, (800, 800), padding = True, letter_box=True)
+        im_rlb, offset_xy = resize_keep_ratio(im, (800, 800), padding = True, letter_box=True)
         self.assertEqual(im_rp.shape, (800, 800, 3))
-        self.assertEqual(offset_y, (800-h_expected)//2)
-        self.assertTrue(np.all(im_rlb[:offset_y,:,:] == 114))
-        self.assertTrue(np.all(im_rlb[-offset_y:,:,:] == 114))
+        self.assertEqual(offset_xy[1], (800-h_expected)//2)
+        self.assertEqual(offset_xy[0], 0)
+        self.assertTrue(np.all(im_rlb[:offset_xy[1],:,:] == 114))
+        self.assertTrue(np.all(im_rlb[-offset_xy[1]:,:,:] == 114))
 
 
 if __name__ == '__main__':  
